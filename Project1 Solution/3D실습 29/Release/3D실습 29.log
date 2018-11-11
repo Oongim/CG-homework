@@ -1,0 +1,21 @@
+﻿  소스.cpp
+c:\users\강동균\desktop\컴그\project1 solution\3d실습 29\소스.cpp(54): warning C4244: '=': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습 29\소스.cpp(55): warning C4244: '=': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습 29\소스.cpp(65): warning C4244: '=': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습 29\소스.cpp(66): warning C4244: '=': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습 29\소스.cpp(78): warning C4244: '=': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습 29\소스.cpp(79): warning C4244: '=': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습 29\소스.cpp(95): warning C4244: '=': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습 29\소스.cpp(96): warning C4244: '=': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습 29\소스.cpp(129): warning C4244: '=': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습 29\소스.cpp(130): warning C4244: '=': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습 29\소스.cpp(133): warning C4244: '=': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습 29\소스.cpp(134): warning C4244: '=': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습 29\소스.cpp(146): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습 29\소스.cpp(147): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다.
+  1 of 11 functions ( 9.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  코드를 생성했습니다.
+  3D실습 29.vcxproj -> C:\Users\강동균\Desktop\컴그\Project1 Solution\Release\3D실습 29.exe
