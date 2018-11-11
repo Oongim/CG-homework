@@ -57,6 +57,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3D실습 27", "3D실습 27\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3D실습 28", "3D실습 28\3D실습 28.vcxproj", "{F56D7EF8-F90D-4C20-973B-8981B06FABD4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3D실습 29", "3D실습 29\3D실습 29.vcxproj", "{F3A9187D-2AC9-4568-B667-832E631A8643}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -281,6 +283,14 @@ Global
 		{F56D7EF8-F90D-4C20-973B-8981B06FABD4}.Release|x64.Build.0 = Release|x64
 		{F56D7EF8-F90D-4C20-973B-8981B06FABD4}.Release|x86.ActiveCfg = Release|Win32
 		{F56D7EF8-F90D-4C20-973B-8981B06FABD4}.Release|x86.Build.0 = Release|Win32
+		{F3A9187D-2AC9-4568-B667-832E631A8643}.Debug|x64.ActiveCfg = Debug|x64
+		{F3A9187D-2AC9-4568-B667-832E631A8643}.Debug|x64.Build.0 = Debug|x64
+		{F3A9187D-2AC9-4568-B667-832E631A8643}.Debug|x86.ActiveCfg = Debug|Win32
+		{F3A9187D-2AC9-4568-B667-832E631A8643}.Debug|x86.Build.0 = Debug|Win32
+		{F3A9187D-2AC9-4568-B667-832E631A8643}.Release|x64.ActiveCfg = Release|x64
+		{F3A9187D-2AC9-4568-B667-832E631A8643}.Release|x64.Build.0 = Release|x64
+		{F3A9187D-2AC9-4568-B667-832E631A8643}.Release|x86.ActiveCfg = Release|Win32
+		{F3A9187D-2AC9-4568-B667-832E631A8643}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

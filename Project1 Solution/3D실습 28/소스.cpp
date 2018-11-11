@@ -153,7 +153,8 @@ GLvoid drawScene(GLvoid)
 		for(int j=0;j<4;++j)
 			if(mouse_select[i][j] ==1)
 				glVertex3fv(&mouse_arr[i][j][0]);
-	glEnd();
+	glEnd();
+
 
 
 	glPopMatrix();
