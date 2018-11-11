@@ -1,0 +1,9 @@
+﻿  소스.cpp
+c:\users\kdk\desktop\컴그\project1 solution\3d실습 25\소스.cpp(188): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습 25\소스.cpp(190): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습 25\소스.cpp(215): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습 25\소스.cpp(233): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습 25\소스.cpp(315): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습 25\소스.cpp(332): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습 25\소스.cpp(333): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  3D실습 25.vcxproj -> C:\Users\kdk\Desktop\컴그\Project1 Solution\Debug\3D실습 25.exe

@@ -1,0 +1,25 @@
+﻿  소스.cpp
+c:\users\강동균\desktop\컴그\project1 solution\3d실습16\소스.cpp(67): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습16\소스.cpp(68): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습16\소스.cpp(137): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습16\소스.cpp(139): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습16\소스.cpp(143): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습16\소스.cpp(145): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습16\소스.cpp(152): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습16\소스.cpp(154): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습16\소스.cpp(158): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습16\소스.cpp(160): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습16\소스.cpp(167): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습16\소스.cpp(169): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습16\소스.cpp(174): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습16\소스.cpp(176): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습16\소스.cpp(184): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습16\소스.cpp(186): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습16\소스.cpp(190): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\desktop\컴그\project1 solution\3d실습16\소스.cpp(192): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다.
+  1 of 9 functions (11.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  코드를 생성했습니다.
+  3D실습16.vcxproj -> C:\Users\강동균\Desktop\컴그\Project1 Solution\Release\3D실습16.exe

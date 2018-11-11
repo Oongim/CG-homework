@@ -1,0 +1,56 @@
+﻿  소스.cpp
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(32): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(273): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(286): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(313): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(319): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(321): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(470): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(475): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(508): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(513): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(520): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(528): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(535): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(542): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(561): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(569): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(576): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(583): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(590): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(597): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(604): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(611): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(628): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(633): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(638): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(643): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(650): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(657): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(709): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(712): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(718): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(724): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(731): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(737): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(751): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(758): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(766): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(773): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(778): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(784): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(792): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(797): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(802): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(807): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(820): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(821): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(828): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(829): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(836): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(837): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(870): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(874): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(880): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\kdk\desktop\컴그\project1 solution\3d실습22\소스.cpp(887): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+  3D실습22.vcxproj -> C:\Users\kdk\Desktop\컴그\Project1 Solution\Debug\3D실습 22.exe
