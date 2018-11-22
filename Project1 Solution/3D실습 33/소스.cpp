@@ -31,6 +31,7 @@ bool isLight1 = true;
 bool isLight2 = true;
 bool isrotate = false;
 bool isVector = true;
+bool isSnow = true;
 float diffuse_num = 1;
 float Specular_num = 1;
 float ambient_num = 0;
@@ -174,6 +175,14 @@ void Keyboard(unsigned char key, int x, int y)
 		else
 			isLight2 = true;
 		break;
+	case'3':
+		if (isSnow)
+			isSnow = false;
+		else {
+			isSnow = true;
+			init_snow();
+		}
+		break;
 	case 'o':
 		if (isVector)
 			isVector = false;
@@ -200,7 +209,8 @@ void TimerFunction(int value)
 		rotate2++;
 	}
 	rotatemoon -= 3;
-	update_snow();
+	if(isSnow)
+		update_snow();
 	glutPostRedisplay();
 	glutTimerFunc(50, TimerFunction, 1);
 }
@@ -284,7 +294,8 @@ GLvoid drawScene(GLvoid)
 	glMultMatrixd(rotate);
 	/****************************************************/
 	glDisable(GL_LIGHTING);
-	draw_snow();
+	if(isSnow)
+		draw_snow();
 	draw_bottom(500);
 	GLfloat ambientLight[] = { 0.0f, ambient_num, 0.0f, 1.0f };
 	GLfloat DiffuseLightr[] = { diffuse_num + 1, diffuse_num,diffuse_num, 1.0f };

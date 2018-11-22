@@ -2,6 +2,8 @@
 #include<time.h>
 #include<stdlib.h>
 #include<math.h>
+#include<iostream>
+
 #define PI 3.14
 #define RADIAN PI/180
 
@@ -102,9 +104,13 @@ void Keyboard(unsigned char key, int x, int y)
 		if ((circle.z - speed) > -200)
 			circle.z -= speed;
 		glPushMatrix();
-		glRotatef(-2, 1.0, 0.0, 0.0);
+		glRotatef(-45, 1.0, 0.0, 0.0);
 		glMultMatrixd(rotateC);
 		glGetDoublev(GL_MODELVIEW_MATRIX, rotateC);
+		std::cout << rotateC[0] << "," << rotateC[1] << "," << rotateC[2] << "," << rotateC[3] << std::endl;
+		std::cout << rotateC[4] << "," << rotateC[5] << "," << rotateC[6] << "," << rotateC[7] << std::endl;
+		std::cout << rotateC[8] << "," << rotateC[9] << "," << rotateC[10] << "," << rotateC[11] << std::endl;
+		std::cout << rotateC[12] << "," << rotateC[13] << "," << rotateC[14] << "," << rotateC[15] << std::endl<<std::endl;
 		glPopMatrix();
 		break;
 	case 's':
