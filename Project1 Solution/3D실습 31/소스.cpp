@@ -201,6 +201,24 @@ void drawRec(float size)
 
 	glEnd();
 }
+void draw_bottom(float size)
+{
+	glBegin(GL_QUADS);
+	glNormal3f(0, 1, 0);
+	for (int i = 0; i < 50; ++i)
+	{
+		for (int j = 0; j < 50; ++j)
+		{
+			glColor3f(0.4, 0.4, 0.4);
+			glVertex3f(-size / 2 + size / 50 * i, -size / 2, -size / 2 + size / 50 * j);//5
+			glVertex3f(-size / 2 + size / 50 * i, -size / 2, -size / 2 + size / 50 * (j + 1));//6
+			glVertex3f(-size / 2 + size / 50 * (i + 1), -size / 2, -size / 2 + size / 50 * (j + 1));//7
+			glVertex3f(-size / 2 + size / 50 * (i + 1), -size / 2, -size / 2 + size / 50 * j);//8
+		}
+	}
+
+	glEnd();
+}
 GLvoid drawScene(GLvoid)
 {
 
@@ -221,10 +239,14 @@ GLvoid drawScene(GLvoid)
 
 	GLfloat gray[] = { 0.75f, 0.75f, 0.75f, 1.0f };
 	GLfloat specref[] = { Specular_num, Specular_num, Specular_num, 1.0f };
+
+	GLfloat lightVector[] = { 0,-1,0 };
+	GLfloat radian[] = { 80 };
+	GLfloat exponent[] = { 90 };
+	GLfloat ATTENUATION[] = { 0 };
 	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, gray);
 	glMaterialfv(GL_FRONT, GL_SPECULAR, specref);
 	glMateriali(GL_FRONT, GL_SHININESS, 128);
-	//glEnable(GL_AUTO_NORMAL);
 	glEnable(GL_LIGHTING);
 	glShadeModel(GL_SMOOTH);
 	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambientLight);
@@ -242,6 +264,7 @@ GLvoid drawScene(GLvoid)
 		glLightfv(GL_LIGHT0, GL_DIFFUSE, DiffuseLight);
 		glLightfv(GL_LIGHT0, GL_SPECULAR, SpecularLight);
 		glLightfv(GL_LIGHT0, GL_POSITION, lightPos1);
+		
 		if (!isLight1) {
 			glDisable(GL_LIGHT0);
 		}
@@ -259,6 +282,10 @@ GLvoid drawScene(GLvoid)
 		glLightfv(GL_LIGHT1, GL_DIFFUSE, DiffuseLight);
 		glLightfv(GL_LIGHT1, GL_SPECULAR, SpecularLight);
 		glLightfv(GL_LIGHT1, GL_POSITION, lightPos2);
+		glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, lightVector);
+		glLightfv(GL_LIGHT1, GL_SPOT_CUTOFF, radian);
+		glLightfv(GL_LIGHT1, GL_SPOT_EXPONENT, exponent);
+		glLightfv(GL_LIGHT1, GL_CONSTANT_ATTENUATION, ATTENUATION);
 		if (!isLight2) {
 			glDisable(GL_LIGHT1);
 		}
@@ -267,7 +294,11 @@ GLvoid drawScene(GLvoid)
 		glRotated(-90, 0, 1, 0);
 		glutSolidCone(20, 20, 20, 20);
 	}glPopMatrix();
-
+	glEnable(GL_COLOR_MATERIAL);
+	glColorMaterial(GL_FRONT, GL_AMBIENT_AND_DIFFUSE);
+	glMaterialfv(GL_FRONT, GL_SPECULAR, specref);
+	glMateriali(GL_FRONT, GL_SHININESS, 128);
+	draw_bottom(1000);
 	/****************************************************/
 	glPopMatrix();
 	glEnable(GL_DEPTH_TEST);

@@ -9,7 +9,12 @@ GLvoid drawScene(GLvoid);
 GLvoid Reshape(int w, int h);
 struct pos {
 	float x, y, z;
+	int dir;
+	int mode;
+	int speed;
 };
+
+pos O;
 pos camera;
 GLdouble rotate[16]
 = { 1,0,0,0,
@@ -23,7 +28,11 @@ void Init_array(GLdouble arr[])
 	arr[8] = 0; arr[9] = 0; arr[10] = 1; arr[11] = 0;
 	arr[12] = 0; arr[13] = 0; arr[14] = 0; arr[15] = 1;
 }
-
+struct Running {
+	int r_run;
+	int r_leg;
+	int r_vel;
+};
 
 int bottom_color[50][50] = { 0 };
 int snow_arr[100][4];
@@ -38,13 +47,14 @@ float ambient_num = 0;
 float rotate1;
 float rotate2;
 float rotatemoon;
+Running R;
 void init_snow()
 {
 	for (int i = 0; i < 100; ++i)
 	{
-		snow_arr[i][0] = rand() % 499 - 250;
-		snow_arr[i][1] = rand() % 499 - 250;
-		snow_arr[i][2] = rand() % 100 + 400;
+		snow_arr[i][0] = rand() % 999 - 500;
+		snow_arr[i][1] = rand() % 999 - 500;
+		snow_arr[i][2] = rand() % 100 + 500;
 		snow_arr[i][3] = rand() % 6 + 4;
 	}
 }
@@ -55,10 +65,10 @@ void update_snow()
 		snow_arr[i][2] -= snow_arr[i][3];
 		if (snow_arr[i][2] <= -250)
 		{
-			bottom_color[(snow_arr[i][0] + 250) / 10][(snow_arr[i][1] + 250) / 10] += 2;
-			snow_arr[i][0] = rand() % 499 - 250;
-			snow_arr[i][1] = rand() % 499 - 250;
-			snow_arr[i][2] = rand() % 100 + 400;
+			bottom_color[(snow_arr[i][0] +500) / 20][(snow_arr[i][1] +500) / 20] += 2;
+			snow_arr[i][0] = rand() % 999 - 500;
+			snow_arr[i][1] = rand() % 999 - 500;
+			snow_arr[i][2] = rand() % 100 + 500;
 			snow_arr[i][3] = rand() % 6 + 4;
 		}
 	}
@@ -81,6 +91,10 @@ void Init()
 	camera.z = 50;
 	Init_array(rotate);
 	init_snow();
+	O.dir = 5;
+	O.z = -200;
+	O.mode = 0;
+	R.r_vel = 5;
 }
 void Keyboard(unsigned char key, int x, int y)
 {
@@ -128,40 +142,27 @@ void Keyboard(unsigned char key, int x, int y)
 		glPopMatrix();
 		break;
 	case 'w':
-		if (ambient_num > 0)
-			ambient_num -= 0.1;
-		break;
-	case 'W':
-		if (ambient_num < 1)
-			ambient_num += 0.1;
+		O.mode = 180;
+
+
 		break;
 	case 's':
-		if (Specular_num > 0)
-			Specular_num -= 0.1;
-		break;
-	case 'S':
-		if (Specular_num < 2)
-			Specular_num += 0.1;
+		O.mode = 0;
+
 		break;
 	case 'a':
-		if (isrotate)
-			isrotate = false;
-		else
-			isrotate = true;
+		O.mode = 270;
+
 		break;
 	case 'd':
-		if (diffuse_num > 0)
-			diffuse_num -= 0.1;
-		break;
-	case 'D':
-		if (diffuse_num < 1)
-			diffuse_num += 0.1;
+		O.mode = 90;
+
 		break;
 	case '+':
-		camera.z -= 2;
+		camera.x -= 2;
 		break;
 	case '-':
-		camera.z += 2;
+		camera.x += 2;
 		break;
 	case '1':
 		if (isLight1)
@@ -204,10 +205,40 @@ void Mouse(int button, int state, int x, int y)
 }
 void TimerFunction(int value)
 {
-	if (isrotate) {
+	if (O.mode == 0)
+	{
+		O.z += O.dir;
+		if (O.z >= 450 || O.z <= -450 ) {
+			O.z -= O.dir;
+		}
+	}
+	else if (O.mode == 90)
+	{
+		O.x += O.dir;
+		if (O.x >= 450 || O.x <= -450 ) {
+			O.x -= O.dir;
+		}
+	}
+	else if (O.mode == 180)
+	{
+		O.z -= O.dir;
+		if (O.z >= 450 || O.z <= -450 ) {
+			O.z += O.dir;
+		}
+	}
+	else if (O.mode == 270)
+	{
+		O.x -= O.dir;
+		if (O.x >= 450 || O.x <= -450 ) {
+			O.x += O.dir;
+		}
+	}
+	R.r_run += 5;
+	R.r_leg += R.r_vel;
+	if (R.r_leg > 45 || R.r_leg < -45)
+		R.r_vel *= -1;
 		rotate1++;
 		rotate2++;
-	}
 	rotatemoon -= 3;
 	if (isSnow)
 		update_snow();
@@ -272,15 +303,86 @@ void draw_bottom(float size)
 	{
 		for (int j = 0; j < 50; ++j)
 		{
-			glColor3f(0.1*bottom_color[i][j], 0.1*bottom_color[i][j], 0.1*bottom_color[i][j]);
-			glVertex3f(-size / 2 + size / 50 * i, -size / 2, -size / 2 + size / 50 * j);//5
-			glVertex3f(-size / 2 + size / 50 * i, -size / 2, -size / 2 + size / 50 * (j + 1));//6
-			glVertex3f(-size / 2 + size / 50 * (i + 1), -size / 2, -size / 2 + size / 50 * (j + 1));//7
-			glVertex3f(-size / 2 + size / 50 * (i + 1), -size / 2, -size / 2 + size / 50 * j);//8
+			glColor3f(0.1*bottom_color[i][j]+0.1, 0.1*bottom_color[i][j] + 0.1, 0.1*bottom_color[i][j] + 0.1);
+			glVertex3f(-size / 2 + size / 50 * i, -250, -size / 2 + size / 50 * j);//5
+			glVertex3f(-size / 2 + size / 50 * i, -250, -size / 2 + size / 50 * (j + 1));//6
+			glVertex3f(-size / 2 + size / 50 * (i + 1), -250, -size / 2 + size / 50 * (j + 1));//7
+			glVertex3f(-size / 2 + size / 50 * (i + 1), -250, -size / 2 + size / 50 * j);//8
 		}
 	}
 
 	glEnd();
+}
+void drawRobot(float x,float y,float z)
+{
+	glPushMatrix();//맨아래
+
+	glTranslatef(O.x, y, O.z);
+	glRotatef(O.mode, 0.0, 1.0, 0.0);
+	/**************************************************/
+	glPushMatrix(); {
+		glTranslatef(0, 100, 0);
+		glPushMatrix(); {
+			glTranslatef(0 + 15, -50, 0);
+			glRotatef(-R.r_leg, 1.0, 0.0, 0.0);
+			glTranslatef(0, -50, 0);
+
+			glScalef(30, 100, 30);
+			glColor3f(1, 0, 0);
+			glutSolidCube(1);
+		}glPopMatrix();
+		glPushMatrix(); {
+			glTranslatef(0 - 15, -50, 0);
+			glRotatef(R.r_leg, 1.0, 0.0, 0.0);
+			glTranslatef(0, -50, 0);
+
+			glScalef(30, 100, 30);
+			glColor3f(1, 0, 0);
+			glutSolidCube(1);
+		}glPopMatrix();
+		/*****************************************************/
+		glPushMatrix(); {
+			glTranslatef(0 + 50, 50, 0);
+			glRotatef(R.r_leg, 1.0, 0.0, 0.0);
+			glTranslatef(0, -50, 0);
+
+			glScalef(30, 100, 30);
+			glColor3f(0, 1, 0);
+			glutSolidCube(1);
+		}glPopMatrix();
+		glPushMatrix(); {
+			glTranslatef(0 - 50, 50, 0);
+			glRotatef(-R.r_leg, 1.0, 0.0, 0.0);
+			glTranslatef(0, -50, 0);
+
+			glScalef(30, 100, 30);
+			glColor3f(0, 1, 0);
+			glutSolidCube(1);
+		}glPopMatrix();
+		/*******************************************************/
+		glPushMatrix(); {
+			glTranslatef(0, 0, 0);
+
+			glScalef(70, 100, 50);
+			glColor3f(0, 0, 1);
+			glutSolidCube(1);
+		}glPopMatrix();
+		glPushMatrix(); {
+			glTranslatef(0, 70, 0);
+
+			glScalef(2, 2, 2);
+			glColor3f(1, 0.4, 0.5);
+			glutSolidCube(20);
+			glPushMatrix(); {
+				glTranslatef(0, 0, 13);
+
+				glScalef(1, 2, 1);
+				glColor3f(0.9, 0.9, 0.9);
+				glutSolidCube(5);
+			}glPopMatrix();
+		}glPopMatrix();
+	}glPopMatrix();
+	glPopMatrix();
 }
 GLvoid drawScene(GLvoid)
 {
@@ -290,7 +392,7 @@ GLvoid drawScene(GLvoid)
 
 	glPushMatrix();
 
-	gluLookAt(0 + camera.x,  camera.y, 200, 0.0 + camera.x, 0.0 + camera.y, 0.0 + camera.z, 0.0, 1, 0.0);
+	gluLookAt(0 ,  100, 500, 0.0 , 0.0 , 0.0 , 0.0, 1, 0.0);
 	glMultMatrixd(rotate);
 	/****************************************************/
 	glDisable(GL_LIGHTING);
@@ -302,16 +404,16 @@ GLvoid drawScene(GLvoid)
 	GLfloat DiffuseLightb[] = { diffuse_num , diffuse_num,diffuse_num + 1, 1.0f };
 	GLfloat DiffuseLight[] = { 1, 1,1, 1.0f };
 	GLfloat SpecularLight[] = { Specular_num, Specular_num, Specular_num, 1.0 }; // 백색조명
-	GLfloat lightPos1[] = { 100.0, 0.0, 0.0, 1.0 };
-	GLfloat lightPos2[] = { -100.0, 0.0, 0.0, 1.0 };
-	GLfloat lightPos3[] = { 100.0, 300.0, 0.0, 1.0 };
+	GLfloat lightPos1[] = { 500.0, 0.0, 0.0, 1.0 };
+	GLfloat lightPos2[] = { -500.0, 0.0, 0.0, 1.0 };
+	GLfloat lightPos3[] = { O.x, 100, O.z };
 
 	GLfloat gray[] = { 0.75f, 0.75f, 0.75f, 1.0f };
 	GLfloat specref[] = { Specular_num, Specular_num, Specular_num, 1.0f };
 	GLfloat lightVector[] = { 0,-1,0 };
 
 	GLfloat radian[] = { 60 };
-	GLfloat exponent[] = { 100 };
+	GLfloat exponent[] = {30};
 	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, gray);
 	glMaterialfv(GL_FRONT, GL_SPECULAR, specref);
 	glMateriali(GL_FRONT, GL_SHININESS, 128);
@@ -323,30 +425,14 @@ GLvoid drawScene(GLvoid)
 	
 	glPushMatrix(); {
 		glTranslated(0, -200, 0);
-		pyramid(100);
-		glPushMatrix(); {
-			glTranslated(200, 0, 200);
-			pyramid(100);
-		}glPopMatrix();
-		glPushMatrix(); {
-			glTranslated(-200, 0, 200);
-			pyramid(100);
-		}glPopMatrix();
-		glPushMatrix(); {
-			glTranslated(-200, 0, -200);
-			pyramid(100);
-		}glPopMatrix();
-		glPushMatrix(); {
-			glTranslated(200, 0, -200);
-			pyramid(100);
-		}glPopMatrix();
+		pyramid(300);
 	}glPopMatrix();
 	glPushMatrix(); {
 		glRotated(rotatemoon, 0, 1, 0);
-		glTranslated(100, 0, 0);
+		glTranslated(100, 200, 0);
 		glutSolidSphere(50, 40, 40);
 	}glPopMatrix();
-	glPushMatrix(); {
+	/*glPushMatrix(); {
 		glRotated(rotate1, 0, 1, 0);
 		glEnable(GL_LIGHT0);
 
@@ -354,13 +440,10 @@ GLvoid drawScene(GLvoid)
 		glLightfv(GL_LIGHT0, GL_DIFFUSE, DiffuseLightr);
 		glLightfv(GL_LIGHT0, GL_SPECULAR, SpecularLight);
 		glLightfv(GL_LIGHT0, GL_POSITION, lightPos1);
+
 		if (!isLight1) {
 			glDisable(GL_LIGHT0);
 		}
-		glColor3f(1.0f, 0.0f, 0.0f);
-		glTranslated(500, 0, 0);
-		glRotated(270, 0, 1, 0);
-		glutSolidCone(20, 20, 20, 20);
 	}glPopMatrix();
 
 	glPushMatrix(); {
@@ -371,18 +454,15 @@ GLvoid drawScene(GLvoid)
 		glLightfv(GL_LIGHT1, GL_DIFFUSE, DiffuseLightb);
 		glLightfv(GL_LIGHT1, GL_SPECULAR, SpecularLight);
 		glLightfv(GL_LIGHT1, GL_POSITION, lightPos2);
+
 		if (!isLight2) {
 			glDisable(GL_LIGHT1);
 		}
-		glColor3f(1.0f, 0.0f, 0.0f);
-		glTranslated(-100, 0, 0);
-		glRotated(-270, 0, 1, 0);
-		glutSolidCone(20, 20, 20, 20);
-	}glPopMatrix();
+	}glPopMatrix();*/
 	glPushMatrix(); {
-
+		glTranslated(O.x, 100, O.z);
 		glEnable(GL_LIGHT2);
-
+		glLightfv(GL_LIGHT2, GL_POSITION, lightPos3);
 		glLightfv(GL_LIGHT2, GL_AMBIENT, ambientLight);
 		glLightfv(GL_LIGHT2, GL_DIFFUSE, DiffuseLight);
 		glLightfv(GL_LIGHT2, GL_SPECULAR, SpecularLight);
@@ -390,20 +470,16 @@ GLvoid drawScene(GLvoid)
 		glLightfv(GL_LIGHT2, GL_SPOT_DIRECTION, lightVector);
 		glLightfv(GL_LIGHT2, GL_SPOT_CUTOFF, radian);
 		glLightfv(GL_LIGHT2, GL_SPOT_EXPONENT, exponent);
-		glLightfv(GL_LIGHT2, GL_POSITION, lightPos3);
-		if (!isLight2) {
-			glDisable(GL_LIGHT1);
-		}
-		glColor3f(1.0f, 0.0f, 0.0f);
-		glTranslated(-100, 0, 0);
-		glRotated(-270, 0, 1, 0);
-		glutSolidCone(20, 20, 20, 20);
+
 	}glPopMatrix();
+	
 	glEnable(GL_COLOR_MATERIAL);
 	glColorMaterial(GL_FRONT, GL_AMBIENT_AND_DIFFUSE);
 	glMaterialfv(GL_FRONT, GL_SPECULAR, specref); 
 	glMateriali(GL_FRONT, GL_SHININESS, 128);
-	draw_bottom(500);
+	draw_bottom(1000);
+	drawRobot(100, -200, 100);
+	glDisable(GL_COLOR_MATERIAL);
 	/****************************************************/
 	glPopMatrix();
 	glEnable(GL_DEPTH_TEST);

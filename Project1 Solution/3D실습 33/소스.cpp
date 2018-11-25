@@ -296,7 +296,6 @@ GLvoid drawScene(GLvoid)
 	glDisable(GL_LIGHTING);
 	if(isSnow)
 		draw_snow();
-	draw_bottom(500);
 	GLfloat ambientLight[] = { 0.0f, ambient_num, 0.0f, 1.0f };
 	GLfloat DiffuseLightr[] = { diffuse_num + 1, diffuse_num,diffuse_num, 1.0f };
 	GLfloat DiffuseLightb[] = { diffuse_num , diffuse_num,diffuse_num + 1, 1.0f };
@@ -373,7 +372,11 @@ GLvoid drawScene(GLvoid)
 		glRotated(-270, 0, 1, 0);
 		glutSolidCone(20, 20, 20, 20);
 	}glPopMatrix();
-
+	glEnable(GL_COLOR_MATERIAL);
+	glColorMaterial(GL_FRONT, GL_AMBIENT_AND_DIFFUSE);
+	glMaterialfv(GL_FRONT, GL_SPECULAR, specref);
+	glMateriali(GL_FRONT, GL_SHININESS, 128);
+	draw_bottom(500);
 	/****************************************************/
 	glPopMatrix();
 	glEnable(GL_DEPTH_TEST);
