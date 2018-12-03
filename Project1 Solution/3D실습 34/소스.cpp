@@ -42,6 +42,7 @@ bool isLight1 = true;
 bool isLight2 = true;
 bool isrotate = false;
 bool isVector = true;
+bool isSnow = true;
 enum{ SUNNY,RAIN,SNOW };
 int weather_mode =SUNNY;
 float diffuse_num = 1;

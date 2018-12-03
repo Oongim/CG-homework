@@ -1,12 +1,12 @@
 ﻿  37.cpp
-c:\users\강동균\documents\github\cg-homework\project1 solution\3d 실습37\37.cpp(73): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\강동균\documents\github\cg-homework\project1 solution\3d 실습37\37.cpp(147): warning C4305: '-=': 'double'에서 'float'(으)로 잘립니다.
-c:\users\강동균\documents\github\cg-homework\project1 solution\3d 실습37\37.cpp(151): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
-c:\users\강동균\documents\github\cg-homework\project1 solution\3d 실습37\37.cpp(155): warning C4305: '-=': 'double'에서 'float'(으)로 잘립니다.
-c:\users\강동균\documents\github\cg-homework\project1 solution\3d 실습37\37.cpp(159): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
-c:\users\강동균\documents\github\cg-homework\project1 solution\3d 실습37\37.cpp(169): warning C4305: '-=': 'double'에서 'float'(으)로 잘립니다.
-c:\users\강동균\documents\github\cg-homework\project1 solution\3d 실습37\37.cpp(173): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
-c:\users\강동균\documents\github\cg-homework\project1 solution\3d 실습37\37.cpp(219): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
-c:\users\강동균\documents\github\cg-homework\project1 solution\3d 실습37\37.cpp(224): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
-c:\users\강동균\documents\github\cg-homework\project1 solution\3d 실습37\37.cpp(226): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  3D 실습37.vcxproj -> C:\Users\강동균\Documents\GitHub\CG-homework\Project1 Solution\Debug\3D실습 37.exe
+c:\users\kdk\documents\github\cg-homework\project1 solution\3d 실습37\37.cpp(73): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kdk\documents\github\cg-homework\project1 solution\3d 실습37\37.cpp(147): warning C4305: '-=': 'double'에서 'float'(으)로 잘립니다.
+c:\users\kdk\documents\github\cg-homework\project1 solution\3d 실습37\37.cpp(151): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+c:\users\kdk\documents\github\cg-homework\project1 solution\3d 실습37\37.cpp(155): warning C4305: '-=': 'double'에서 'float'(으)로 잘립니다.
+c:\users\kdk\documents\github\cg-homework\project1 solution\3d 실습37\37.cpp(159): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+c:\users\kdk\documents\github\cg-homework\project1 solution\3d 실습37\37.cpp(169): warning C4305: '-=': 'double'에서 'float'(으)로 잘립니다.
+c:\users\kdk\documents\github\cg-homework\project1 solution\3d 실습37\37.cpp(173): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+c:\users\kdk\documents\github\cg-homework\project1 solution\3d 실습37\37.cpp(219): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+c:\users\kdk\documents\github\cg-homework\project1 solution\3d 실습37\37.cpp(224): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+c:\users\kdk\documents\github\cg-homework\project1 solution\3d 실습37\37.cpp(226): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  3D 실습37.vcxproj -> C:\Users\kdk\Documents\GitHub\CG-homework\Project1 Solution\Debug\3D실습 37.exe
