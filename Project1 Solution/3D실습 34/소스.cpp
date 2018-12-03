@@ -1,6 +1,7 @@
 #include <GL/freeglut.h>
 #include<time.h>
 #include<stdlib.h>
+#include<iostream>
 #include<math.h>
 #define PI 3.14
 #define RADIAN PI/180
@@ -36,18 +37,75 @@ struct Running {
 
 int bottom_color[50][50] = { 0 };
 int snow_arr[100][4];
+int rain_arr[100][4];
 bool isLight1 = true;
 bool isLight2 = true;
 bool isrotate = false;
 bool isVector = true;
-bool isSnow = true;
+enum{ SUNNY,RAIN,SNOW };
+int weather_mode =SUNNY;
 float diffuse_num = 1;
 float Specular_num = 1;
 float ambient_num = 0;
 float rotate1;
 float rotate2;
 float rotatemoon;
+int r;
+bool isParticle = false;
+float check_x = 0;
+float check_z = 0;
 Running R;
+GLubyte * LoadDIBitmap(const char *filename, BITMAPINFO **info)
+{
+	FILE *fp;
+	GLubyte *bits;
+	int bitsize, infosize;
+	BITMAPFILEHEADER header;
+	// 바이너리 읽기 모드로 파일을 연다
+	if ((fp = fopen(filename, "rb")) == NULL)
+		return NULL;
+	// 비트맵 파일 헤더를 읽는다.
+	if (fread(&header, sizeof(BITMAPFILEHEADER), 1, fp) < 1) {
+		fclose(fp);
+		return NULL;
+	}
+	// 파일이 BMP 파일인지 확인한다.
+	if (header.bfType != 'MB') {
+		fclose(fp);
+		return NULL;
+	}
+	// BITMAPINFOHEADER 위치로 간다.
+	infosize = header.bfOffBits - sizeof(BITMAPFILEHEADER);
+	// 비트맵 이미지 데이터를 넣을 메모리 할당을 한다.
+	if ((*info = (BITMAPINFO *)malloc(infosize)) == NULL) {
+		fclose(fp);
+		exit(0);
+		return NULL;
+	}
+	// 비트맵 인포 헤더를 읽는다.
+	if (fread(*info, 1, infosize, fp) < (unsigned int)infosize) {
+		free(*info);
+		fclose(fp);
+		return NULL;
+	}
+	// 비트맵의 크기 설정
+	if ((bitsize = (*info)->bmiHeader.biSizeImage) == 0)
+		bitsize = ((*info)-> bmiHeader.biWidth*(*info)->bmiHeader.biBitCount + 7) / 8.0 * abs((*info) ->bmiHeader.biHeight);
+	// 비트맵의 크기만큼 메모리를 할당한다.
+	if ((bits = (unsigned char *)malloc(bitsize)) == NULL) {
+		free(*info);
+		fclose(fp);
+		return NULL;
+	}
+	// 비트맵 데이터를 bit(GLubyte 타입)에 저장한다.
+	if (fread(bits, 1, bitsize, fp) < (unsigned int)bitsize) {
+		free(*info); free(bits);
+		fclose(fp);
+		return NULL;
+	}
+	fclose(fp);
+	return bits;
+}
 void init_snow()
 {
 	for (int i = 0; i < 100; ++i)
@@ -65,7 +123,7 @@ void update_snow()
 		snow_arr[i][2] -= snow_arr[i][3];
 		if (snow_arr[i][2] <= -250)
 		{
-			bottom_color[(snow_arr[i][0] +500) / 20][(snow_arr[i][1] +500) / 20] += 2;
+			bottom_color[(snow_arr[i][0] + 500) / 20][(snow_arr[i][1] + 500) / 20] += 2;
 			snow_arr[i][0] = rand() % 999 - 500;
 			snow_arr[i][1] = rand() % 999 - 500;
 			snow_arr[i][2] = rand() % 100 + 500;
@@ -84,6 +142,44 @@ void draw_snow()
 		}glPopMatrix();
 	}
 }
+void init_rain()
+{
+	for (int i = 0; i < 100; ++i)
+	{
+		snow_arr[i][0] = rand() % 999 - 500;
+		snow_arr[i][1] = rand() % 999 - 500;
+		snow_arr[i][2] = rand() % 100 + 500;
+		snow_arr[i][3] = rand() % 6 + 10;
+	}
+}
+void update_rain()
+{
+	for (int i = 0; i < 100; ++i)
+	{
+		snow_arr[i][2] -= snow_arr[i][3];
+		if (snow_arr[i][2] <= -250)
+		{
+			if(bottom_color[(snow_arr[i][0] + 500) / 20][(snow_arr[i][1] + 500) / 20]>0)
+				bottom_color[(snow_arr[i][0] + 500) / 20][(snow_arr[i][1] + 500) / 20] -= 1;
+			snow_arr[i][0] = rand() % 999 - 500;
+			snow_arr[i][1] = rand() % 999 - 500;
+			snow_arr[i][2] = rand() % 100 + 500;
+			snow_arr[i][3] = rand() % 6 + 10;
+		}
+	}
+}
+void draw_rain()
+{
+	glColor3f(1, 1, 1);
+	for (int i = 0; i < 100; ++i)
+	{
+		glPushMatrix(); {
+			glTranslated(snow_arr[i][0], snow_arr[i][2], snow_arr[i][1]);
+			glScaled(0, 10, 0);
+			glutSolidCube(1);
+		}glPopMatrix();
+	}
+}
 void Init()
 {
 	camera.x = 0;
@@ -99,6 +195,7 @@ void Init()
 void Keyboard(unsigned char key, int x, int y)
 {
 	switch (key) {
+		{
 	case 'x':
 		glPushMatrix();
 		glRotatef(5, 1.0, 0.0, 0.0);
@@ -141,6 +238,7 @@ void Keyboard(unsigned char key, int x, int y)
 		glGetDoublev(GL_MODELVIEW_MATRIX, rotate);
 		glPopMatrix();
 		break;
+		}
 	case 'w':
 		O.mode = 180;
 
@@ -203,48 +301,110 @@ void Mouse(int button, int state, int x, int y)
 		glutPostRedisplay();
 	}
 }
+void drawParticle(float x, float z)
+{
+	static float prev_x=0;
+	static float prev_z=0;
+	if (prev_x != x || prev_z != z)
+	{
+		r = 0;
+	}
+	prev_x = x;
+	prev_z = z;
+		for (int i = 0; i < 18; ++i)
+		{
+			for (int j = 0; j < 36; ++j)
+			{
+				glPushMatrix(); {
+				glTranslated(x, -100, z);
+				glRotated(i*10, 1, 0, 0);
+				glTranslated(r*cos(j * 10 * RADIAN), 0, r*sin(j * 10 * RADIAN));
+				glutSolidCube(1);
+				}glPopMatrix();
+			}
+		}
+}
 void TimerFunction(int value)
 {
+	if (isParticle)
+	{
+		r+=5;
+		if (r >= 200) {
+			r = 0;
+			isParticle = false;
+		}
+	}
 	if (O.mode == 0)
 	{
 		O.z += O.dir;
-		if (O.z >= 450 || O.z <= -450 ) {
+		if (O.z >= 450 || O.z <= -450) {
 			O.z -= O.dir;
 		}
+		if (O.z <= 150 && O.z >= -150&& O.x <= 150 && O.x >= -150) {
+			O.z -= O.dir;
+			isParticle = true;
+			check_x = O.x;
+			check_z = -100;
+			
+		}
+		
 	}
 	else if (O.mode == 90)
 	{
 		O.x += O.dir;
-		if (O.x >= 450 || O.x <= -450 ) {
+		if (O.x >= 450 || O.x <= -450) {
 			O.x -= O.dir;
+		}
+		if (O.z <= 150 && O.z >= -150 && O.x <= 150 && O.x >= -150) {
+			O.x -= O.dir;
+			isParticle = true;
+			check_x = -100;
+			check_z =O.z ;
+			
 		}
 	}
 	else if (O.mode == 180)
 	{
 		O.z -= O.dir;
-		if (O.z >= 450 || O.z <= -450 ) {
+		if (O.z >= 450 || O.z <= -450) {
 			O.z += O.dir;
+		}
+		if (O.z <= 150 && O.z >= -150 && O.x <= 150 && O.x >= -150) {
+			O.z += O.dir;
+			isParticle = true;
+			check_x = O.x;
+			check_z = 100;
+			
 		}
 	}
 	else if (O.mode == 270)
 	{
 		O.x -= O.dir;
-		if (O.x >= 450 || O.x <= -450 ) {
+		if (O.x >= 450 || O.x <= -450) {
 			O.x += O.dir;
+		}
+		if (O.z <= 150 && O.z >= -150 && O.x <= 150 && O.x >= -150) {
+			O.x += O.dir;
+
+			isParticle = true;
+			check_x = 100;
+			check_z = O.z;
+			
 		}
 	}
 	R.r_run += 5;
 	R.r_leg += R.r_vel;
 	if (R.r_leg > 45 || R.r_leg < -45)
 		R.r_vel *= -1;
-		rotate1++;
-		rotate2++;
+	rotate1++;
+	rotate2++;
 	rotatemoon -= 3;
 	if (isSnow)
 		update_snow();
 	glutPostRedisplay();
 	glutTimerFunc(50, TimerFunction, 1);
 }
+
 void main(int argc, char *argv[])
 {
 	Init();
@@ -303,7 +463,7 @@ void draw_bottom(float size)
 	{
 		for (int j = 0; j < 50; ++j)
 		{
-			glColor3f(0.1*bottom_color[i][j]+0.1, 0.1*bottom_color[i][j] + 0.1, 0.1*bottom_color[i][j] + 0.1);
+			glColor3f(0.1*bottom_color[i][j] + 0.5, 0.1*bottom_color[i][j] + 0.5, 0.1*bottom_color[i][j] + 0.5);
 			glVertex3f(-size / 2 + size / 50 * i, -250, -size / 2 + size / 50 * j);//5
 			glVertex3f(-size / 2 + size / 50 * i, -250, -size / 2 + size / 50 * (j + 1));//6
 			glVertex3f(-size / 2 + size / 50 * (i + 1), -250, -size / 2 + size / 50 * (j + 1));//7
@@ -313,7 +473,7 @@ void draw_bottom(float size)
 
 	glEnd();
 }
-void drawRobot(float x,float y,float z)
+void drawRobot(float x, float y, float z)
 {
 	glPushMatrix();//맨아래
 
@@ -384,6 +544,7 @@ void drawRobot(float x,float y,float z)
 	}glPopMatrix();
 	glPopMatrix();
 }
+
 GLvoid drawScene(GLvoid)
 {
 
@@ -392,13 +553,15 @@ GLvoid drawScene(GLvoid)
 
 	glPushMatrix();
 
-	gluLookAt(0 ,  100, 500, 0.0 , 0.0 , 0.0 , 0.0, 1, 0.0);
+	gluLookAt(0, 100, 500, 0.0, 0.0, 0.0, 0.0, 1, 0.0);
 	glMultMatrixd(rotate);
 	/****************************************************/
 	glDisable(GL_LIGHTING);
 	if (isSnow)
 		draw_snow();
-	
+	if (isParticle)
+		drawParticle(check_x, check_z);
+	drawRobot(100, -200, 100);
 	GLfloat ambientLight[] = { 0.0f, ambient_num, 0.0f, 1.0f };
 	GLfloat DiffuseLightr[] = { diffuse_num + 1, diffuse_num,diffuse_num, 1.0f };
 	GLfloat DiffuseLightb[] = { diffuse_num , diffuse_num,diffuse_num + 1, 1.0f };
@@ -412,8 +575,8 @@ GLvoid drawScene(GLvoid)
 	GLfloat specref[] = { Specular_num, Specular_num, Specular_num, 1.0f };
 	GLfloat lightVector[] = { 0,-1,0 };
 
-	GLfloat radian[] = { 60 };
-	GLfloat exponent[] = {30};
+	GLfloat radian[] = { 90 };
+	GLfloat exponent[] = { 30 };
 	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, gray);
 	glMaterialfv(GL_FRONT, GL_SPECULAR, specref);
 	glMateriali(GL_FRONT, GL_SHININESS, 128);
@@ -422,7 +585,7 @@ GLvoid drawScene(GLvoid)
 	glShadeModel(GL_SMOOTH);
 	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambientLight);
 	glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE);
-	
+
 	glPushMatrix(); {
 		glTranslated(0, -200, 0);
 		pyramid(300);
@@ -432,7 +595,7 @@ GLvoid drawScene(GLvoid)
 		glTranslated(100, 200, 0);
 		glutSolidSphere(50, 40, 40);
 	}glPopMatrix();
-	/*glPushMatrix(); {
+	glPushMatrix(); {
 		glRotated(rotate1, 0, 1, 0);
 		glEnable(GL_LIGHT0);
 
@@ -458,7 +621,7 @@ GLvoid drawScene(GLvoid)
 		if (!isLight2) {
 			glDisable(GL_LIGHT1);
 		}
-	}glPopMatrix();*/
+	}glPopMatrix();
 	glPushMatrix(); {
 		glTranslated(O.x, 100, O.z);
 		glEnable(GL_LIGHT2);
@@ -466,20 +629,21 @@ GLvoid drawScene(GLvoid)
 		glLightfv(GL_LIGHT2, GL_AMBIENT, ambientLight);
 		glLightfv(GL_LIGHT2, GL_DIFFUSE, DiffuseLight);
 		glLightfv(GL_LIGHT2, GL_SPECULAR, SpecularLight);
-						  
+
 		glLightfv(GL_LIGHT2, GL_SPOT_DIRECTION, lightVector);
 		glLightfv(GL_LIGHT2, GL_SPOT_CUTOFF, radian);
 		glLightfv(GL_LIGHT2, GL_SPOT_EXPONENT, exponent);
 
 	}glPopMatrix();
-	
+
 	glEnable(GL_COLOR_MATERIAL);
 	glColorMaterial(GL_FRONT, GL_AMBIENT_AND_DIFFUSE);
-	glMaterialfv(GL_FRONT, GL_SPECULAR, specref); 
+	glMaterialfv(GL_FRONT, GL_SPECULAR, specref);
 	glMateriali(GL_FRONT, GL_SHININESS, 128);
 	draw_bottom(1000);
-	drawRobot(100, -200, 100);
+
 	glDisable(GL_COLOR_MATERIAL);
+
 	/****************************************************/
 	glPopMatrix();
 	glEnable(GL_DEPTH_TEST);

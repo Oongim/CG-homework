@@ -1,26 +1,26 @@
 ﻿  소스.cpp
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(45): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(52): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(53): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(54): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(82): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(83): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(84): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(244): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(246): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(248): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(250): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(258): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(284): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(290): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(296): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(302): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(328): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(334): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(340): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(346): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(353): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(371): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(372): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습 26\소스.cpp(379): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  3D실습 26.vcxproj -> C:\Users\kdk\Desktop\컴그\Project1 Solution\Debug\3D실습 26.exe
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(45): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(52): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(53): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(54): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(82): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(83): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(84): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(244): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(246): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(248): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(250): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(258): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(284): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(290): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(296): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(302): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(328): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(334): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(340): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(346): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(353): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(371): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(372): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습 26\소스.cpp(379): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  3D실습 26.vcxproj -> C:\Users\강동균\Documents\GitHub\CG-homework\Project1 Solution\Debug\3D실습 26.exe

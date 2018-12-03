@@ -1,11 +1,11 @@
 ﻿  소스.cpp
-c:\users\kdk\desktop\컴그\project1 solution\3d실습14\소스.cpp(38): warning C4805: '==': 연산에 'int' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습14\소스.cpp(84): warning C4805: '==': 연산에 'int' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습14\소스.cpp(99): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습14\소스.cpp(100): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습14\소스.cpp(124): warning C4805: '==': 연산에 'int' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습14\소스.cpp(127): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습14\소스.cpp(129): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습14\소스.cpp(130): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kdk\desktop\컴그\project1 solution\3d실습14\소스.cpp(131): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  3D실습14.vcxproj -> C:\Users\kdk\Desktop\컴그\Project1 Solution\Debug\3D실습14.exe
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습14\소스.cpp(38): warning C4805: '==': 연산에 'int' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습14\소스.cpp(84): warning C4805: '==': 연산에 'int' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습14\소스.cpp(99): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습14\소스.cpp(100): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습14\소스.cpp(124): warning C4805: '==': 연산에 'int' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습14\소스.cpp(127): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습14\소스.cpp(129): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습14\소스.cpp(130): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\강동균\documents\github\cg-homework\project1 solution\3d실습14\소스.cpp(131): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  3D실습14.vcxproj -> C:\Users\강동균\Documents\GitHub\CG-homework\Project1 Solution\Debug\3D실습14.exe
